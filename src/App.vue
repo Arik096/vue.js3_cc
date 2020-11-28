@@ -36,6 +36,13 @@ export default {
             }
         }
     },
+    watch:{
+        followers(newfollowersCount, oldfollowersCount){
+            if(oldfollowersCount<newfollowersCount){
+                console.log('{$this.user.username} has gained a follower!')
+            }
+        }
+    },
     computed:{
         fullname(){
             return  this.user.firstname+' '+this.user.lastname
@@ -48,6 +55,9 @@ export default {
         ResetfollowUser(){
             this.followers= 0
         }
+    },
+    mounted(){
+        this.followUser();
     }
 }
 
